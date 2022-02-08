@@ -65,7 +65,6 @@ public class FarmController {
 		return (deleted) 
 				        ? new ResponseEntity<Boolean>(deleted, HttpStatus.OK)
 		    			: new ResponseEntity<Boolean>(deleted, HttpStatus.NOT_FOUND);
-	
 	}
 	
 }
