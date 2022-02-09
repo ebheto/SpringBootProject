@@ -36,7 +36,6 @@ public class Farm {
 	private Long telephone;
 
 public Farm() {
-	farm_name = "farm";
 	}
 
 public Farm(String farm_name, String address, String email, Long telephone) {
@@ -116,7 +115,6 @@ public boolean equals(Object obj) {
 public String toString() {
 	return "Farm [Id=" + Id + ", farm_name=" + farm_name + ", address=" + address + ", email=" + email + ", telephone="
 			+ telephone + "]";
-	
 	}
-	
+
 }
