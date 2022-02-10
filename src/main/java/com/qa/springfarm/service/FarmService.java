@@ -53,13 +53,8 @@ public class FarmService implements CRUDInterface<Farm> {
 
 	@Override
 	public boolean delete(long id) {
-		boolean deleted = true;
-		Optional<Farm> optionalFarm = this.farmRepo.findById(id);
-		if (optionalFarm.isPresent()) {
 		this.farmRepo.deleteById(id);
-		deleted = true;
-		}
-		return deleted;
+		return !this.farmRepo.existsById(id);
 	}
 	
 }
