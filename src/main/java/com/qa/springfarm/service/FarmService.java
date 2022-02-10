@@ -28,7 +28,6 @@ public class FarmService implements CRUDInterface<Farm> {
 	}
 
 	@Override
-	//Optional of allows for return to be null without throwing exception
 	public Farm getById(long id) {
 		Optional<Farm> optionalFarm = this.farmRepo.findById(id);
 		if (optionalFarm.isPresent()){
@@ -37,7 +36,6 @@ public class FarmService implements CRUDInterface<Farm> {
 		return null;
 	}
 
-	//Optional of allows for return to be null without throwing exception
 	@Override
 	public Farm update(long id, Farm updatedFarm) {
 		Optional<Farm> optionalFarm = this.farmRepo.findById(id);
@@ -55,15 +53,13 @@ public class FarmService implements CRUDInterface<Farm> {
 
 	@Override
 	public boolean delete(long id) {
-		boolean deleted = false;
+		boolean deleted = true;
 		Optional<Farm> optionalFarm = this.farmRepo.findById(id);
-		if (optionalFarm.isPresent()){
+		if (optionalFarm.isPresent()) {
 		this.farmRepo.deleteById(id);
-		
 		deleted = true;
+		}
 		return deleted;
 	}
-	return deleted;
 	
-	}
 }

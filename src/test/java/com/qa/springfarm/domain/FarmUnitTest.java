@@ -70,7 +70,7 @@ public class FarmUnitTest {
 		assertEquals("oldmac@moo.com", farm.getEmail());
 		assertEquals((Long)43658709L, farm.getTelephone());
 	}
-	
+
 	@Test
 	public void testToString() {
 		Farm farm = new Farm(1, "Old Macdonald", "EIEIO", "oldmac@moo.com", 43658709L);

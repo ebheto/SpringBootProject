@@ -27,9 +27,9 @@ public class FarmController {
 	public FarmController(FarmService farmService) {
 		this.farmService = farmService;
 	}
-
+	
 	//Create
-	@PostMapping("/create")
+	@PostMapping("/createFarm")
 	public ResponseEntity<Farm> createFarm(@RequestBody Farm farm) {
 		return new ResponseEntity<Farm>(this.farmService.create(farm),
 				                                                      HttpStatus.CREATED);
@@ -50,7 +50,7 @@ public class FarmController {
 	}
 	
 	//Update
-	@PutMapping("/update/{id}")
+	@PutMapping("/updateFarm/{id}")
 	public ResponseEntity<Farm> updateFarm(@PathVariable long id, @RequestBody Farm farm) {
 		return new ResponseEntity<Farm>(this.farmService.update(id, farm),
 				                                                    HttpStatus.ACCEPTED);
@@ -58,7 +58,7 @@ public class FarmController {
 	
 	//Delete
 	@Transactional
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/deleteFarm/{id}")
 	public ResponseEntity<Boolean> deleteFarm(@PathVariable long id) {
 		boolean deleted = this.farmService.delete(id);
 		
