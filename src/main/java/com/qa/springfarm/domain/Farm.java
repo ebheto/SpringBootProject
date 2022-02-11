@@ -95,7 +95,7 @@ public void setTelephone(Long telephone) {
 
 @Override
 public int hashCode() {
-	return Objects.hash(Id, address, email, farm_name, telephone);
+	return Objects.hash(address, email, farm_name, telephone);
 }
 
 @Override
@@ -107,7 +107,7 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	Farm other = (Farm) obj;
-	return Id == other.Id && Objects.equals(address, other.address) && Objects.equals(email, other.email)
+	return Objects.equals(address, other.address) && Objects.equals(email, other.email)
 			&& Objects.equals(farm_name, other.farm_name) && Objects.equals(telephone, other.telephone);
 }
 

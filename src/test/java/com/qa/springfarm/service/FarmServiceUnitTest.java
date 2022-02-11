@@ -89,7 +89,7 @@ public class FarmServiceUnitTest {
 
 		Mockito.verify(this.farmRepo, Mockito.times(1)).findById(testInputValidId);	
 		Mockito.verify(this.farmRepo, Mockito.times(1)).saveAndFlush(methodResult);
-		Mockito.verify(this.farmRepo, Mockito.times(1)).findById(testInputInvalidId);		
+		Mockito.verify(this.farmRepo, Mockito.times(1)).findById(testInputInvalidId);
 	}
 	
 	@Test
@@ -100,7 +100,7 @@ public class FarmServiceUnitTest {
 		
 		assertEquals(true, this.farmService.delete(testInput));
 		
-		Mockito.verify(this.farmRepo, Mockito.times(1)).findById(testInput);
+		Mockito.verify(this.farmRepo, Mockito.times(1)).existsById(testInput);
 		Mockito.verify(this.farmRepo, Mockito.times(1)).deleteById(testInput);
 	}
 }

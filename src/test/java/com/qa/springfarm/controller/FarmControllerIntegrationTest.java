@@ -43,7 +43,7 @@ public class FarmControllerIntegrationTest {
 	public void testCreate() throws Exception {
 		Farm newF = new Farm("Manor farm", "Manor road", "oldmajor@animal.farm", 0123154L); 
 		String newFJSON = this.mapper.writeValueAsString(newF);
-		RequestBuilder mockRequest = post("/createFarm").contentType(MediaType.APPLICATION_JSON).content(newFJSON);
+		RequestBuilder mockRequest = post("/Farm/createFarm").contentType(MediaType.APPLICATION_JSON).content(newFJSON);
 		
 		Farm savedF = new Farm(2, "Manor farm", "Manor road", "oldmajor@animal.farm", 0123154L);
 		String savedFJSON = this.mapper.writeValueAsString(savedF);
@@ -60,7 +60,7 @@ public class FarmControllerIntegrationTest {
 		List<Farm> allFarms = List.of(testF);
 		String testFJSON = this.mapper.writeValueAsString(allFarms);
 
-		RequestBuilder mockRequest = get("/getall");
+		RequestBuilder mockRequest = get("/Farm/getall");
 
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(testFJSON);
@@ -73,9 +73,9 @@ public class FarmControllerIntegrationTest {
 		Farm readF = new Farm("Candyland", "Mississippi", "djan@go.com", 88813885L);
 		String readFJSON = this.mapper.writeValueAsString(readF);
 		
-		RequestBuilder mockRequest = get("/getById/3").contentType(MediaType.APPLICATION_JSON).content(readFJSON);
+		RequestBuilder mockRequest = get("/Farm/getById/1").contentType(MediaType.APPLICATION_JSON).content(readFJSON);
 		
-		Farm readFById = new Farm(3, "Candyland", "Mississippi", "djan@go.com", 88813885L);
+		Farm readFById = new Farm(1, "Candyland", "Mississippi", "djan@go.com", 88813885L);
 		String readFByIdJSON = this.mapper.writeValueAsString(readFById);
 		
 		ResultMatcher matchStatus = status().isOk();
@@ -89,7 +89,7 @@ public class FarmControllerIntegrationTest {
 		Farm newF = new Farm("Manor farm", "Manor road", "oldmajor@animal.farm", 0123154L);
 		String newFJSON = this.mapper.writeValueAsString(newF);
 	
-		RequestBuilder mockRequest = put("/updateFarm/1").contentType(MediaType.APPLICATION_JSON).content(newFJSON);
+		RequestBuilder mockRequest = put("/Farm/updateFarm/1").contentType(MediaType.APPLICATION_JSON).content(newFJSON);
 	    
 		Farm savedF = new Farm(1, "Manor farm", "Manor road", "oldmajor@animal.farm", 0123154L);
 		String savedFJSON = this.mapper.writeValueAsString(savedF);
@@ -102,7 +102,7 @@ public class FarmControllerIntegrationTest {
 	
 	@Test
 	void deleteTest() throws Exception {
-		RequestBuilder mockRequest = delete("/deleteFarm/1");
+		RequestBuilder mockRequest = delete("/Farm/deleteFarm/1");
 
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().string("true");
