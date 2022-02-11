@@ -60,11 +60,8 @@ public class FarmController {
 	@Transactional
 	@DeleteMapping("/deleteFarm/{id}")
 	public ResponseEntity<Boolean> deleteFarm(@PathVariable long id) {
-		boolean deleted = this.farmService.delete(id);
-		
-		return (deleted) 
-				        ? new ResponseEntity<Boolean>(deleted, HttpStatus.OK)
-		    			: new ResponseEntity<Boolean>(deleted, HttpStatus.NOT_FOUND);
+		return this.farmService.delete(id) ? ResponseEntity.ok(true)
+				:new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
 	}
 	
 }

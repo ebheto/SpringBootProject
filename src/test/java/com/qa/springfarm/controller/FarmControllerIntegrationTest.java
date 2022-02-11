@@ -27,7 +27,7 @@ import com.qa.springfarm.domain.Farm;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Sql(scripts = {"classpath:drink-schema.sql", "classpath:drink-data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = {"classpath:farm-schema.sql", "classpath:farm-data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
 
 
